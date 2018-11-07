@@ -1,0 +1,9 @@
+.blueBox {
+  background-color: darkcyan;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: goldenrod;
+}
