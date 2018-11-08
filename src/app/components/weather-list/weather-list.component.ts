@@ -8,14 +8,30 @@ import {Iweather} from '../../interfaces/iweather';
 })
 export class WeatherListComponent implements OnInit, Iweather {
 
-  weatherData: Iweather[] = [
+  cityName: string;
+  description: string;
+  temperature: number;
+
+  _weatherData: Iweather[] = [
     {
-      description: "d",
-      cityName: "ss",
+      description: "Southern city",
+      cityName: "Atlanta",
+      temperature: 30
+    },
+    {
+      description: "in Oregon",
+      cityName: "Portland",
+      temperature: 17
+    },
+    {
+      description: "Washington State",
+      cityName: "Seattle",
       temperature: 20
     }
   ];
+
   constructor() { }
+
 
   ngOnInit() { }
 }
