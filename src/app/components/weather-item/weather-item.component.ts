@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {Iweather} from '../../interfaces/iweather';
 
 @Component({
   selector: 'app-weather-item',
@@ -9,12 +10,11 @@ export class WeatherItemComponent implements OnInit {
   temperature: number;
   description: string;
   cityName: string;
+  @Input() weatherItem: Iweather;
   constructor() { }
 
   ngOnInit() {
-    this.temperature = 22;
-    this.description = "My Description";
-    this.cityName = "Portland";
+
   }
 
 }
