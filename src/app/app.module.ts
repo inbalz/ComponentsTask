@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { WeatherItemComponent } from './components/weather-item/weather-item.component';
@@ -14,7 +15,8 @@ import { WeatherAddComponent } from './components/weather-add/weather-add.compon
     WeatherAddComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

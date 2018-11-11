@@ -1,3 +1,10 @@
-<p>
-  weather-add works!
-</p>
+<p>weather-add works!</p>
+<form>
+  <label>City</label>
+  <input [(ngModel)]="city" name="city">
+  <label>Description</label>
+  <input [(ngModel)]="description" name="description">
+  <label>Temperature</label>
+  <input [(ngModel)]="tempature" name="tempature">
+  <button (click)="submitForm()">Add City</button>
+</form>
