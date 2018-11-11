@@ -1,4 +1,7 @@
 <div class="blueBox">Angular 4 Weather</div>
-<div *ngFor="let item of _weatherData">
+<div *ngFor="let item of _weatherItem">
   <p>{{item.cityName}}, {{item.temperature}}, {{item.description}}</p>
+</div>
+<div>
+  <app-weather-item [weatherItem]="_weatherItem"></app-weather-item>
 </div>

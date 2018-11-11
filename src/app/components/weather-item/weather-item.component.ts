@@ -11,6 +11,7 @@ export class WeatherItemComponent implements OnInit {
   description: string;
   cityName: string;
   @Input() weatherItem: Iweather;
+
   constructor() { }
 
   ngOnInit() {
