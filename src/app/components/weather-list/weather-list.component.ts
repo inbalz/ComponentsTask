@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Iweather} from '../../interfaces/iweather';
+import {WeatherService} from '../../services/weather.service';
 
 @Component({
   selector: 'app-weather-list',
@@ -11,7 +12,7 @@ export class WeatherListComponent implements OnInit, Iweather {
   cityName: string;
   description: string;
   temperature: number;
-
+  _weatherItems: Iweather[];
   _weatherItem: Iweather[] = [
     {
       description: "Southern city",
@@ -30,7 +31,12 @@ export class WeatherListComponent implements OnInit, Iweather {
     }
   ];
 
-  constructor() { }
+  onNotifyClicked(newItem: Iweather) {
+    this._weatherItem.push(newItem);
+  }
+  constructor(private weatherService: WeatherService) {
+    this._weatherItems = this.weatherService.getWeatherItems();
+  }
 
 
   ngOnInit() { }

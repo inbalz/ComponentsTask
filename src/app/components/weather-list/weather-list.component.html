@@ -5,3 +5,6 @@
 <div>
   <app-weather-item [weatherItem]="_weatherItem"></app-weather-item>
 </div>
+<div>
+  <app-weather-add (notify)="onNotifyClicked($event)"></app-weather-add>
+</div>
