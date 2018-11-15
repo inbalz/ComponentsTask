@@ -20,6 +20,8 @@ export class WeatherService {
   }
 
   getForecast(woied: number): Observable<any> {
-    return this._http.get<Array<any>>('https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/' + woied);
+    debugger;
+    return this._http.get<Array<any>>(this._basedomain + 'Paris');
+
   }
 }

@@ -18,10 +18,13 @@ export class WeatherAddComponent implements OnInit {
 
   ngOnInit() {
   }
+
   submitForm() {
-    debugger;
-    alert('form submitted');
-    this.generateForecast(this.searchForecast(this.city));
+    //this.generateForecast(this.searchForecast(this.city));
+     const response = this.searchForecast(this.city);
+    // return await this.generateForecast(response);
+
+
     // let item: Iweather = {
     //   description: this.description,
     //   cityName: this.city,
@@ -31,18 +34,19 @@ export class WeatherAddComponent implements OnInit {
   }
 
   searchForecast(city: string): any {
-    debugger;
-    alert('searchForecast');
-    return this.weatherService.getLocationInfo(city).toPromise().then(response => {
-      this.weatherService.getForecast (response[0].woeid);
-    });
-  }
+    return this.weatherService.getForecast(615702);
+
+    //   this.weatherService.getLocationInfo(this.city).toPromise().then(response => {
+    //   debugger;
+    //   return this.weatherService.getForecast(response[0].woeid);
+    // });
+   }
 
   generateForecast(forecastObject: any) {
     debugger;
     console.log(forecastObject);
     alert('generateForecast');
-    if (forecastObject != undefined)
+    if (forecastObject !== undefined)
     {
       alert('forecastObject:' + forecastObject);
       if (forecastObject.consolidated_weather.length > 0)
