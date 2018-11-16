@@ -2,7 +2,6 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Iweather} from '../../interfaces/iweather';
 import {WeatherService} from '../../services/weather.service';
 
-
 @Component({
   selector: 'app-weather-add',
   templateUrl: './weather-add.component.html',
@@ -20,32 +19,17 @@ export class WeatherAddComponent implements OnInit {
   }
 
   submitForm() {
-    //this.generateForecast(this.searchForecast(this.city));
-     const response = this.searchForecast(this.city);
-    // return await this.generateForecast(response);
-
-
-    // let item: Iweather = {
-    //   description: this.description,
-    //   cityName: this.city,
-    //   temperature: this.tempature
-    // };
-    // this.notify.emit(item);
+    this.searchForecast(this.city);
   }
 
   searchForecast(city: string): any {
-    return this.weatherService.getForecast(615702);
-
-    //   this.weatherService.getLocationInfo(this.city).toPromise().then(response => {
-    //   debugger;
-    //   return this.weatherService.getForecast(response[0].woeid);
-    // });
+    debugger;
+    this.weatherService.getLocationInfo(this.city).toPromise().then(response => {
+      return this.weatherService.getForecast(response[0].woeid).toPromise().then(x => this.generateForecast(x));
+     });
    }
 
   generateForecast(forecastObject: any) {
-    debugger;
-    console.log(forecastObject);
-    alert('generateForecast');
     if (forecastObject !== undefined)
     {
       alert('forecastObject:' + forecastObject);
@@ -58,8 +42,6 @@ export class WeatherAddComponent implements OnInit {
         };
         this.notify.emit(item);
       }
-
     }
-
   }
 }
