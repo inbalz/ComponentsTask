@@ -7,18 +7,16 @@ import { AppComponent } from './app.component';
 import { WeatherItemComponent } from './components/weather-item/weather-item.component';
 import { WeatherListComponent } from './components/weather-list/weather-list.component';
 import { WeatherAddComponent } from './components/weather-add/weather-add.component';
+import {WeatherModule} from '../modules/weather/weather.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    WeatherItemComponent,
-    WeatherListComponent,
-    WeatherAddComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    WeatherModule,
     HttpClientModule
   ],
   providers: [],

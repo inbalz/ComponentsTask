@@ -18,30 +18,19 @@ export class WeatherAddComponent implements OnInit {
   ngOnInit() {
   }
 
-  submitForm() {
-    this.searchForecast(this.city);
+  async submitForm() {
+    const locationInfo = await this.weatherService.getLocationInfo(this.city).toPromise();
+    const forcast = await this.weatherService.getForecast(locationInfo[0].woeid).toPromise();
+    return this.generateForecast(forcast);
   }
 
-  searchForecast(city: string): any {
-    debugger;
-    this.weatherService.getLocationInfo(this.city).toPromise().then(response => {
-      return this.weatherService.getForecast(response[0].woeid).toPromise().then(x => this.generateForecast(x));
-     });
-   }
-
   generateForecast(forecastObject: any) {
-    if (forecastObject !== undefined)
-    {
-      alert('forecastObject:' + forecastObject);
-      if (forecastObject.consolidated_weather.length > 0)
-      {
-        let item: Iweather = {
+    if (forecastObject !== undefined && forecastObject.consolidated_weather.length > 0) {
+        this.notify.emit({
           description: forecastObject.consolidated_weather[0].weather_state_name,
           cityName: forecastObject.title,
           temperature: forecastObject.consolidated_weather[0].max_temp
-        };
-        this.notify.emit(item);
-      }
+        });
     }
   }
 }
