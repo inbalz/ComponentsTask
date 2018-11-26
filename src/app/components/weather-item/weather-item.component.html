@@ -6,6 +6,6 @@
   </div>
   <div class="desc"> {{weatherItem.description}} </div> -->
     <div *ngFor="let item of weatherItem">
-      <p>{{item.cityName}}, {{item.temperature}}, {{item.description}}</p>
+      <p>{{item.cityName}}, {{item.temperature | number:'1.2-2'}}, {{item.description}}</p>
     </div>
 </div>
